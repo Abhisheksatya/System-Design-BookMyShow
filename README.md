@@ -43,7 +43,7 @@ Build an online movie ticket booking system that can support the following requi
 
 ### Class Diagram :
 
-![BMS]()
+![BMS](https://raw.githubusercontent.com/Abhisheksatya/System-Design-BookMyShow/refs/heads/master/db.png)
 
 ### Technologies Used
 
