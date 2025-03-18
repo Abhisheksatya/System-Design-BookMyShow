@@ -19,8 +19,8 @@ class BookMyShowMay24ApplicationTests {
     @Test
     public void testSignUpFunctionality() {
         SignupRequestDto requestDto = new SignupRequestDto();
-        requestDto.setName("Jegan");
-        requestDto.setEmail("jegan@email.com");
+        requestDto.setName("abhi");
+        requestDto.setEmail("abhi@email.com");
         requestDto.setPassword("123456");
 
         SignupResponseDto responseDto = userController.signUp(

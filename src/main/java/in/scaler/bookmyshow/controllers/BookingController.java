@@ -1,13 +1,16 @@
 package in.scaler.bookmyshow.controllers;
 
-import in.scaler.bookmyshow.dtos.CreateBookingRequestDTO;
-import in.scaler.bookmyshow.dtos.CreateBookingResponseDTO;
+import in.scaler.bookmyshow.dtos.BookingRequestDTO;
+import in.scaler.bookmyshow.dtos.BookingResponseDTO;
 import in.scaler.bookmyshow.dtos.ResponseStatus;
 import in.scaler.bookmyshow.services.BookingService;
 import in.scaler.bookmyshow.models.Booking;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/booking")
 public class BookingController {
     private BookingService bookingService;
 
@@ -15,8 +18,9 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    public CreateBookingResponseDTO createBooking(CreateBookingRequestDTO requestDto) {
-        CreateBookingResponseDTO responseDto = new CreateBookingResponseDTO();
+    @PostMapping
+    public BookingResponseDTO createBooking(BookingRequestDTO requestDto) {
+        BookingResponseDTO responseDto = new BookingResponseDTO();
 
         try {
             Booking booking = bookingService.createBooking(requestDto.getUserId(),

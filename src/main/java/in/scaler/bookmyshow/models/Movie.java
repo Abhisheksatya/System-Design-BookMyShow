@@ -1,9 +1,6 @@
 package in.scaler.bookmyshow.models;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +11,8 @@ import java.util.List;
 @Setter
 @Entity
 public class Movie extends BaseModel {
+    @Id
+    private Long id;
     private String name;
     private Date releaseDate;
 

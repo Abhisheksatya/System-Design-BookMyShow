@@ -3,7 +3,6 @@ package in.scaler.bookmyshow.services;
 import in.scaler.bookmyshow.exceptions.ShowNotFoundException;
 import in.scaler.bookmyshow.exceptions.UserNotFoundException;
 import in.scaler.bookmyshow.models.*;
-import in.scaler.bookmyshow.models.*;
 import in.scaler.bookmyshow.repositories.BookingRepository;
 import in.scaler.bookmyshow.repositories.ShowRepository;
 import in.scaler.bookmyshow.repositories.ShowSeatRepository;
@@ -99,5 +98,24 @@ public class BookingService {
         booking.setAmount(priceCalculator.calculatePrice(show, showSeats));
 
         return bookingRepository.save(booking);
+    }
+
+
+    public List<Booking> getBookingsByUser(Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()) {
+            return bookingRepository.findByUser(user.get());
+        } else {
+            return List.of(new Booking());
+        }
+    }
+
+    public void cancelBooking(Long bookingId) {
+        Optional<Booking> booking = bookingRepository.findById(bookingId);
+//        booking.ifPresent(value -> bookingRepository.delete(value));
+        if(booking.isPresent()){
+            booking.get().setBookingStatus(BookingStatus.CANCELLED);
+            bookingRepository.save(booking.get());
+        }
     }
 }

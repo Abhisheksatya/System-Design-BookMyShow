@@ -58,4 +58,15 @@ public class UserService {
         }
         throw new RuntimeException("Password mismatch");
     }
+
+    public User registerUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public User getUserById(Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        return user.orElseGet(User::new);
+    }
+
+
 }
