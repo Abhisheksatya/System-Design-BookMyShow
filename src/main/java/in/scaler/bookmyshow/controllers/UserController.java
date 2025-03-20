@@ -4,8 +4,9 @@ import in.scaler.bookmyshow.dtos.*;
 import in.scaler.bookmyshow.models.User;
 import in.scaler.bookmyshow.services.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserController {
     private UserService userService;
 
