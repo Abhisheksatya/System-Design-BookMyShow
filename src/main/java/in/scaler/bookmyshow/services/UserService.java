@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @Service
 public class UserService {
@@ -65,7 +66,7 @@ public class UserService {
 
     public User getUserById(Long userId) {
         Optional<User> user = userRepository.findById(userId);
-        return user.orElseGet(User::new);
+        return user.orElseGet((Supplier<? extends User>) new RuntimeException("No record found"));
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @Service
 public class MovieService {
@@ -19,7 +20,7 @@ public class MovieService {
 
     public Movie getMovieById(Long id) {
         Optional<Movie> movie = movieRepository.findById(id);
-        return movie.orElseGet(Movie::new);
+        return movie.orElseGet((Supplier<? extends Movie>) new RuntimeException("No record found"));
     }
 
     public List<Show> getShowsByMovie(Long movieId) {

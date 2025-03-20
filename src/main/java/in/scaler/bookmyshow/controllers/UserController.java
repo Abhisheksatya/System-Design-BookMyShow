@@ -3,7 +3,6 @@ package in.scaler.bookmyshow.controllers;
 import in.scaler.bookmyshow.dtos.*;
 import in.scaler.bookmyshow.models.User;
 import in.scaler.bookmyshow.services.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

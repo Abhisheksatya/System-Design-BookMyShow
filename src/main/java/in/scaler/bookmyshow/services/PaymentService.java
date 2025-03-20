@@ -4,6 +4,8 @@ import in.scaler.bookmyshow.models.Payment;
 import in.scaler.bookmyshow.repositories.PaymentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.function.Supplier;
+
 @Service
 public class PaymentService {
     private PaymentRepository paymentRepository;
@@ -12,6 +14,6 @@ public class PaymentService {
     }
 
     public Payment getPaymentById(Long paymentId) {
-        return paymentRepository.findById(paymentId).orElseGet(Payment::new);
+        return paymentRepository.findById(paymentId).orElseGet((Supplier<? extends Payment>) new RuntimeException("No Record found"));
     }
 }

@@ -1,10 +1,7 @@
 package in.scaler.bookmyshow.controllers;
 
 import in.scaler.bookmyshow.models.*;
-import in.scaler.bookmyshow.services.BookingService;
 import in.scaler.bookmyshow.services.MovieService;
-import in.scaler.bookmyshow.services.PaymentService;
-import in.scaler.bookmyshow.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
